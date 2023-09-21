@@ -1,0 +1,27 @@
+.bg {
+    /* The image used */
+
+    background-image: 
+        url("../../assets/img/1.png");
+    /* Full height */
+    height: 750px;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg1 {
+    background-color: #d5fefd;
+    background-image: linear-gradient(315deg, #fdcccc 0%, #fffcff 74%);
+
+    background-size: cover;
+}
+
+.jb1 {
+
+    width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+}

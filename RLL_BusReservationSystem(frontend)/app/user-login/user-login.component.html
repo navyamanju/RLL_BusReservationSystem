@@ -1,0 +1,75 @@
+<nav class="navbar fixed-top navbar-expand-sm navbar-light" style="background-color: #16458a;">
+    <div class="container-fluid">
+        <h3 class="text-white">
+            <img src="assets/img/logo1.jpg" alt="Logo" style="height: 40px; width: auto; margin-right: 10px;">
+            <b><span class="text-danger">RedBus</span></b>
+        </h3>
+        
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link text-danger" routerLink="/userLogin"><b>Login</b></a>
+            </li>
+          
+            <li class="nav-item">
+                <a class="nav-link text-danger" routerLink="/aboutus"><b>About Us</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger" routerLink="/contactus"><b>Contact Us</b></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid bg">
+    <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="col-sm-6 col-md-4 col-lg-3 bg-light box pt-3">
+            <form class="form pt-5 mt-5" [formGroup]="loginForm" (ngSubmit)="submit()">
+                <div *ngIf="failure.value" class="alert-warning">Invalid Id or Password</div>
+                <h3><b>User Login</b></h3><br><br>
+                <!-- userId -->
+                <div *ngIf="loginForm.get('userId').invalid && loginForm.get('userId').touched">
+                    <small *ngIf="loginForm.get('userId').errors?.required" class="text-light">*Customer ID is
+                        madatory</small>
+                </div>
+                <div class="form-group">
+                    <label for="userId">Login Id</label>
+                    <input type="text"
+                        [class.is-invalid]="loginForm.get('userId').invalid && loginForm.get('userId').touched"
+                        formControlName="userId" class="form-control" placeholder="Enter UserId Here...">
+                </div>
+                <!-- password -->
+                <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+                    <small *ngIf="loginForm.get('password').errors?.minlength" class="text-light">*password must be
+                        minimum
+                        8 characters</small>
+                    <small *ngIf="loginForm.get('password').errors?.required" class="text-light">*password is
+                        madatory</small>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password"
+                        [class.is-invalid]="loginForm.get('password').invalid && loginForm.get('password').touched"
+                        formControlName="password" class="form-control" placeholder="Enter Password Here...">
+
+                </div>
+                <!-- button -->
+                <div class="form-group">
+                    <input [disabled]="!loginForm.valid" type="submit" class="btn btn-danger mb1 bg-navy"
+                        style="width: 100%;" value="Log In"><br><br>
+                </div>
+
+                <p>Not an User Yet? <a routerLink="/addUser" style="text-decoration:none">Register Here</a></p>
+            </form>
+           <p class="mt-5 pt-5">Login as Admin from<a routerLink="/adminLogin" style="text-decoration:none;"> Here</a>
+            </p>
+
+
+        </div>
+    </div>
+
+</div>
+<app-footer></app-footer>
+
+
+
+
