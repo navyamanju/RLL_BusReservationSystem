@@ -53,7 +53,9 @@ export class UpdateUserDetailsComponent implements OnInit {
                     userName: data.userName,
                     email: data.email,
                     phone: data.phone,
-                    // You may want to exclude password-related fields here
+                       password:data.password,
+                   confirmPassword:data. confirmPassword,
+                  
                 });
             },
             (error) => {
